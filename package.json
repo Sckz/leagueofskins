@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "discord.js": "^13.7.0",
+    "install": "^0.13.0",
+    "leagueapi": "^0.4.21",
+    "leagueapiwrapper": "^2.5.0",
+    "lol-discord": "^0.2.2"
+  },
+  "resolutions": {
+    "discord.js/snekfetch": "4.0.4"
+  }
+}
