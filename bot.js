@@ -160,7 +160,7 @@ client.on('messageCreate', async msg => {
            s5.react('<:VIT:981239650620416000>')
            s5.react('<:ELY:981239591031951450>')
         }
-        else {
+        else if (!args[1]) {
             msg.channel.send("http://leagueskins.go.yj.fr/event/points.html")
         }
     }
