@@ -226,7 +226,7 @@ client.on('messageCreate', async msg => {
                 name: "Event",
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("LFL - Jour 1 Semaine 1")
+            .setTitle("LFL - Jour 2 Semaine 1")
             .setDescription('**__22h - Team Oplon <:VS:981456373957165068> LDLC OL__**\n\n*Votez en réagissant ci-dessous !*')
             .setColor("GOLD")
             .setTimestamp()
