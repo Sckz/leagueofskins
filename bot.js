@@ -391,7 +391,7 @@ client.on('messageCreate', async msg => {
             }
         }
         else if (!args[1]) {
-            msg.channel.send("http://leagueskins.go.yj.fr/event/points.html")
+            msg.channel.send("https://leagueskins.go.yj.fr/event/points.html")
         }
     }
 })
