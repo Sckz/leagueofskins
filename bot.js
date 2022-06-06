@@ -59,7 +59,7 @@ client.on('messageCreate', async msg => {
          .addField("Nom du compte :", name)
          .addField("Serveur :", "EUW")
          .setColor("BLURPLE")
-        msg.channel.send({embeds : [embed]})
+        msg.channel.send("> Cette commande est en maintenance ⛔")
     }
 });
 client.on('messageCreate', msg => {
@@ -96,12 +96,12 @@ client.on('messageCreate', async msg => {
             msg.delete()
             let m1 = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
+                 name: "LFL Event",
                  iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
             })
-             .setTitle("LFL - Jour 1 Semaine 2")
+             .setTitle("🇫🇷 LFL - Jour 1 Semaine 2 🇫🇷")
              .setDescription('**__18h - Team Oplon <:VS:981456373957165068> GW__**\n\n*Votez en réagissant ci-dessous !*')
-             .setColor("GOLD")
+             .setColor("BLACK")
              .setTimestamp()
              .setFooter({text: client.user.username})
             let s1 = await msg.channel.send({embeds: [m1]})
@@ -110,10 +110,10 @@ client.on('messageCreate', async msg => {
              
             let m2 = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
+                 name: "LFL Event",
                  iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
             })
-             .setTitle("LFL - Jour 1 Semaine 2")
+             .setTitle("🇫🇷 LFL - Jour 1 Semaine 2 🇫🇷")
              .setDescription('**__19h - Mirage-Elyandra <:VS:981456373957165068> LDLCOL__**\n\n*Votez en réagissant ci-dessous !*')
              .setColor("WHITE")
              .setTimestamp()
@@ -124,12 +124,12 @@ client.on('messageCreate', async msg => {
 
             let m3 = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
+                 name: "LFL Event",
                  iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
             })
-             .setTitle("LFL - Jour 1 Semaine 2")
+             .setTitle("🇫🇷 LFL - Jour 1 Semaine 2 🇫🇷")
              .setDescription('**__20h - Team GO <:VS:981456373957165068> Karmine Corp__**\n\n*Votez en réagissant ci-dessous !*')
-             .setColor("GOLD")
+             .setColor("BLACK")
              .setTimestamp()
              .setFooter({text: client.user.username})
             let s3 = await msg.channel.send({embeds: [m3]})
@@ -138,10 +138,10 @@ client.on('messageCreate', async msg => {
 
             let m4 = new MessageEmbed()
             .setAuthor({
-                name: "Event",
+                name: "LFL Event",
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("LFL - Jour 1 Semaine 2")
+            .setTitle("🇫🇷 LFL - Jour 1 Semaine 2 🇫🇷")
             .setDescription('**__21h - Vitality.Bee <:VS:981456373957165068> Misfits Premier__**\n\n*Votez en réagissant ci-dessous !*')
             .setColor("WHITE")
             .setTimestamp()
@@ -153,12 +153,12 @@ client.on('messageCreate', async msg => {
 
            let m5 = new MessageEmbed()
             .setAuthor({
-                name: "Event",
+                name: "LFL Event",
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("LFL - Jour 1 Semaine 2")
+            .setTitle("🇫🇷 LFL - Jour 1 Semaine 2 🇫🇷")
             .setDescription('**__22h - Team BDS Academy <:VS:981456373957165068> Solary __**\n\n*Votez en réagissant ci-dessous !*')
-            .setColor("GOLD")
+            .setColor("BLACK")
             .setTimestamp()
             .setFooter({text: client.user.username})
            let s5 = await msg.channel.send({embeds: [m5]})
@@ -169,12 +169,12 @@ client.on('messageCreate', async msg => {
             msg.delete()
             let m1 = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
+                 name: "LFL Event",
                  iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
             })
-             .setTitle("LFL - Jour 2 Semaine 2")
+             .setTitle("🇫🇷 LFL - Jour 2 Semaine 2 🇫🇷")
              .setDescription('**__18h - Vitality.Bee <:VS:981456373957165068> Team Oplon__**\n\n*Votez en réagissant ci-dessous !*')
-             .setColor("GOLD")
+             .setColor("BLACK")
              .setTimestamp()
              .setFooter({text: client.user.username})
             let s1 = await msg.channel.send({embeds: [m1]})
@@ -184,10 +184,10 @@ client.on('messageCreate', async msg => {
              
             let m2 = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
+                 name: "LFL Event",
                  iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
             })
-             .setTitle("LFL - Jour 2 Semaine 2")
+             .setTitle("🇫🇷 LFL - Jour 2 Semaine 2 🇫🇷")
              .setDescription('**__19h - Misfits Premier <:VS:981456373957165068> Mirage-Elyandra__**\n\n*Votez en réagissant ci-dessous !*')
              .setColor("WHITE")
              .setTimestamp()
@@ -199,12 +199,12 @@ client.on('messageCreate', async msg => {
 
             let m3 = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
+                 name: "LFL Event",
                  iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
             })
-             .setTitle("LFL - Jour 2 Semaine 2")
+             .setTitle("🇫🇷 LFL - Jour 2 Semaine 2 🇫🇷")
              .setDescription('**__20h - Solary <:VS:981456373957165068> LDLC OL __**\n\n*Votez en réagissant ci-dessous !*')
-             .setColor("GOLD")
+             .setColor("BLACK")
              .setTimestamp()
              .setFooter({text: client.user.username})
             let s3 = await msg.channel.send({embeds: [m3]})
@@ -213,10 +213,10 @@ client.on('messageCreate', async msg => {
 
             let m4 = new MessageEmbed()
             .setAuthor({
-                name: "Event",
+                name: "LFL  Event",
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("LFL - Jour 2 Semaine 2")
+            .setTitle("🇫🇷 LFL - Jour 2 Semaine 2 🇫🇷")
             .setDescription('**__21h - Team BDS Academy <:VS:981456373957165068> Karmine Corp __**\n\n*Votez en réagissant ci-dessous !*')
             .setColor("WHITE")
             .setTimestamp()
@@ -228,12 +228,12 @@ client.on('messageCreate', async msg => {
 
            let m5 = new MessageEmbed()
             .setAuthor({
-                name: "Event",
+                name: "LFL Event",
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("LFL - Jour 2 Semaine 2")
+            .setTitle("🇫🇷 LFL - Jour 2 Semaine 2 🇫🇷")
             .setDescription('**__22h - Team GO <:VS:981456373957165068> GameWard__**\n\n*Votez en réagissant ci-dessous !*')
-            .setColor("GOLD")
+            .setColor("BLACK")
             .setTimestamp()
             .setFooter({text: client.user.username})
            let s5 = await msg.channel.send({embeds: [m5]})
@@ -248,10 +248,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new  MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                     })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Vitality.Bee <:VIT:981239650620416000>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -262,10 +262,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                    name: "Event",
+                    name: "LFL Event",
                     iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                    })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Karmine Corp <:KC:981239591166177320>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -276,10 +276,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                    name: "Event",
+                    name: "LFL Event",
                     iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                    })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Team Oplon <:OPL:981239628361244733>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -290,10 +290,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                    name: "Event",
+                    name: "LFL Event",
                     iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                    })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Solary <:SLY:981239640310829056>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -304,10 +304,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                  })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**LDLC OL <:LDLCOL:981239591027757056>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -318,10 +318,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                  })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Team BDS Academy <:BDSA:981239618882117732>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -332,10 +332,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                  })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Mirage-Elyandra <:ELY:981239591031951450>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -346,10 +346,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                  })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Team GO <:GO:981239610002796624>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -360,10 +360,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                  })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**GameWard <:GW:981239591103266866>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -374,10 +374,10 @@ client.on('messageCreate', async msg => {
                 msg.delete()
                 let embed = new MessageEmbed()
                  .setAuthor({
-                     name: "Event",
+                     name: "LFL Event",
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                  })
-                 .setTitle("LFL Event")
+                 .setTitle("🏆 Winner 🏆")
                  .setDescription(`**__Match ${cpt} :__**\n**Misfits Premier <:MSF:981239591153573959>**`)
                  .setColor("GOLD")
                  .setTimestamp()
@@ -391,8 +391,9 @@ client.on('messageCreate', async msg => {
             }
         }
         else if (!args[1]) {
-            msg.channel.send("https://leagueskins.go.yj.fr/event/points.html")
+            msg.channel.send("http://leagueskins.go.yj.fr/event/points.html")
         }
     }
 })
+
 client.login(process.env.TOKEN);
