@@ -1,8 +1,8 @@
 const {Client, Intents, Collection, MessageEmbed} = require('discord.js')
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS]})
 const prefix = "!"
-let axios = require('axios').default
-let riotAPI = "RGAPI-b949ce8d-8f32-4a8a-bc4b-dc24a511e252";
+const request = require('request');
+var riotAPI = "RGAPI-e6653989-3a56-4cb0-ae33-70c15a244a8a";
 var cpt = 0
 
 client.on('ready', () => {
@@ -26,7 +26,7 @@ client.on('messageCreate', async (msg) => {
             msg.channel.send("**__Patch 12.11 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12_11.html")
         }
         else if (args[1] == "12.12") {
-            msg.channel.send("Patch inexistant")
+            msg.channel.send("> Ce patch n'est pas encore publique.")
         }
         else {
             msg.channel.send("> Veuillez définir un patch valide (A partir de : 12.10)")
@@ -36,30 +36,114 @@ client.on('messageCreate', async (msg) => {
         msg.channel.send("**__All 2022 Skins :__**\n\nhttps://leagueskins.go.yj.fr/skins/2022.html")
     }
     else if (args[0] == 'newpatch') {
+        if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         msg.delete()
         msg.channel.send(":page_facing_up:  **__Patch 12.11: __**\n\n__**Patch:**__ https://leagueskins.go.yj.fr/patch/12_11.html")
     }
     else if (args[0] == 'newskins') {
+        if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         msg.delete()
         msg.channel.send(':space_invader: **__Skins 12.12: __**\n\n**__Skins__** : https://leagueskins.go.yj.fr/\n\n`By KTS CORP`')
     }
 })
 client.on('messageCreate', async msg => {
-    const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-    var name = args[1]
-    if (args[0] == "lol") {
+    const args = msg.content.slice(prefix.length).split(/ +/);
+    var name = args.slice(1).join("+")
+    if (msg.content.startsWith(prefix + "lol")) {
+        if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         if (!name) return msg.channel.send("> Veuillez entrer un nom.");
 
-        const profile = await axios.get('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name + "?api_key=" + riotAPI)
-        let embed = new MessageEmbed()
-         .setAuthor({name: name, iconURL: ('http://ddragon.leagueoflegends.com/cdn/11.4.1/img/profileicon/' + profile.data.profileIconId + '.png')})
-         .setThumbnail('http://ddragon.leagueoflegends.com/cdn/11.4.1/img/profileicon/' + profile.data.profileIsconId + '.png')
-         .addField("Niveau d'invocateur", profile.data.summonerLevel)
-         .addField("Indentifiant du compte", profile.data.id)
-         .addField("Nom du compte :", name)
-         .addField("Serveur :", "EUW")
-         .setColor("BLURPLE")
-        msg.channel.send("> Cette commande est en maintenance ⛔")
+        request('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name + "?api_key=" + riotAPI, function(error, response, body) {
+            if (error) {
+                console.log("Erreur :", error)
+            }
+            else {
+                var imported = JSON.parse(body);
+                request(`https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${imported.id}?api_key=${riotAPI}`, function(error2, response2, body2) {
+                    if (error2) {
+                        console.log("Erreur:", error2)
+                    }
+                    else {
+                        var imported2 = JSON.parse(body2)
+                        var status = 0;
+                        try {
+                            imported2[1].tier
+                        }catch(error) {
+                            status = 1
+                            try {
+                                imported2[0].tier
+                            }catch(error){
+                                status = 2
+                            }
+                        }
+                        try {
+                            var lp = imported2[0].leaguePoints
+                        }catch(error) {
+                            lp = 0;
+                        }
+                        var emoji = ""
+                        var emoji2 = ""
+                        if (status == 0) {
+                            if (imported2[1].tier == "IRON") emoji = "<:Iron:983715859107295253>"
+                            if (imported2[1].tier == "BRONZE") emoji = "<:Bronze:983716260359594034>"
+                            if (imported2[1].tier == "SILVER") emoji = "<:Silver:983714816973766656>"
+                            if (imported2[1].tier == "GOLD") emoji = "<:Gold:983715909900308480>"
+                            if (imported2[1].tier == "PLATINUM") emoji == "<:Platine:983716966940442746>"
+                            if (imported2[1].tier == "DIAMOND") emoji == "<:Diamand:983717001560199218>"
+                            if (imported2[1].tier == "MASTER") emoji == "<:Master:983716966793637908>"
+                            if (imported2[1].tier == "GRANDMASTER") emoji == "<:Grandmaster:983716982350307368>"
+                            if (imported2[1].tier == "CHALLENGER") emoji == "<:Challenger:983717001723805766>"
+
+                            if (imported2[0].tier == "IRON") emoji2 = "<:Iron:983716260359594034>"
+                            if (imported2[0].tier == "BRONZE") emoji2 = "<:Bronze:983716260359594034>"
+                            if (imported2[0].tier == "SILVER") emoji2 = "<:Silver:983714816973766656>"
+                            if (imported2[0].tier == "GOLD") emoji2 = "<:Gold:983716059330785350>"
+                            if (imported2[0].tier == "PLATINUM") emoji2 == "<:Platine:983717102848458763>"
+                            if (imported2[0].tier == "DIAMOND") emoji2 == "<:Diamand:983717444155744356>"
+                            if (imported2[0].tier == "MASTER") emoji2 == "<:Master:983717626679283734>"
+                            if (imported2[0].tier == "GRANDMASTER") emoji2 == "<:Grandmaster:983717779490340944>"
+                            if (imported2[0].tier == "CHALLENGER") emoji2 == "<:Challenger:983717925733142568>"
+
+                            var lol = new MessageEmbed()
+                            .setAuthor({name: `${imported.name}`, iconURL: ('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')})
+                            .setThumbnail('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')
+                            .addField("Ranked (Solo/Duo)", `${emoji} ${imported2[1].tier} ${imported2[1].rank} ${imported2[1].leaguePoints}LP`)
+                            .addField("Ranked (Flex)", `${emoji2} ${imported2[0].tier} ${imported2[0].rank} ${lp}LP`)
+                            .addField("Niveau d'invocateur",`${imported.summonerLevel}`)
+                            .addField("Nom du compte :", `${imported.name}`)
+                            .addField("Serveur :", "EUW")
+                            .setColor("BLURPLE")
+                            //msg.channel.send({embeds: [lol]})
+                        }
+                        if (status == 1) {
+                            let embed = new MessageEmbed()
+                             .setAuthor({name: `${imported.name}`, iconURL: ('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')})
+                             .setThumbnail('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')
+                             .addField("Ranked (Solo/Duo)", "Inconnu/Non classé")
+                             .addField("Ranked (Flex)", `${imported2[0].tier} ${imported2[0].rank} ${lp}LP`)
+                             .addField("Niveau d'invocateur",`${imported.summonerLevel}`)
+                             .addField("Nom du compte :", `${imported.name}`)
+                             .addField("Serveur :", "EUW")
+                             .setColor("BLURPLE")
+                            //msg.channel.send({embeds: [embed]})
+                        }
+                        if (status == 2) {
+                            let embed = new MessageEmbed()
+                             .setAuthor({name: `${imported.name}`, iconURL: ('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')})
+                             .setThumbnail('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')
+                             .addField("Ranked (Solo/Duo)", "Inconnu/Non classé")
+                             .addField("Ranked (Flex)", "Inconnu/Non classé")
+                             .addField("Niveau d'invocateur",`${imported.summonerLevel}`)
+                             .addField("Nom du compte :", `${imported.name}`)
+                             .addField("Serveur :", "EUW")
+                             .setColor("BLURPLE")
+                            //msg.channel.send({embeds: [embed]})
+                        }
+                        
+                    }
+                })
+            }
+        })
     }
 });
 client.on('messageCreate', msg => {
@@ -70,7 +154,7 @@ client.on('messageCreate', msg => {
              name: "Help",
              iconURL: client.user.displayAvatarURL()
             })
-         .setDescription('`help` - List of commands\n`skins` - All 2022 Skins\n`patch` - Last Patch\n`site` - Site Web\n`!event` - Event')
+         .setDescription('`help` - List of commands\n`skins` - All 2022 Skins\n`patch` - League of Legends Patch note (Usage : `!patch <name of patch>`) \n`site` - Site Web\n`event` - Event')
          .setColor("WHITE")
          .setFooter({text: client.user.username})
         msg.channel.send({embeds: [embed]})
@@ -79,20 +163,20 @@ client.on('messageCreate', msg => {
 client.on('messageCreate', async msg => {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g)
     if (args[0] == "event") {
-        if (args[1] == "rules") {
-            let rules = new MessageEmbed()
+        if (args[1] == "bc") {
+            if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
+            let bc = new MessageEmbed()
              .setAuthor({
-                 name: "Event",
-                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-            })
-             .setTitle("LFL - Event")
-             .setDescription("Bienvenue sur le salon de l'événement **LFL** de ce serveur qui débutera dès le premier match sois le Mercredi 01 Juin.\n\n**__Comment ça marche ? :__**\nDans ce salon vont être postés les matchs. Vous aurez jusqu'à la fin de la Draft pour voter en réagissant sur les émojis en dessous. Celui qui a le plus de points gagne un role. Pour voir vos points il suffit de faire la commande `!event` et va vous renvoyer un lien vers la liste des points.\n\nBonne chance !")
+                 name: "Broadcast"})
+             .setTitle("Saison 2")
+             .setDescription("Bienvenue sur le salon des patch-note **LeagueOfLegends Saison 2** de ce serveur.\n\n**__Qu'est-ce que change la saison 2 ? :__**\nMaintenant, tous les **Mardi** entre **18h et 18h30**, il y aura une mise à jour du site, du bot et il y aura les nouveaux patch sur ce channel. Nous commençons par un nouveau patch, des nouveaux skins et DES nouvelles commandes ! Les nouvelles commandes sont `!patch <patch>` et `!skins` ! Tapez la commande `!help` pour plus d'informations.\n\nA bientôt pour plus de nouveautées")
              .setColor("RED")
              .setTimestamp()
              .setFooter({text: client.user.username})
-            msg.channel.send({embeds: [rules]})
+            msg.channel.send({embeds: [bc]})
         }
         if (args[1] == "day1") {
+            if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
             msg.delete()
             let m1 = new MessageEmbed()
              .setAuthor({
@@ -166,6 +250,7 @@ client.on('messageCreate', async msg => {
            s5.react('<:SLY:981239640310829056>')
         }
         if (args[1] == "day2") {
+            if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
             msg.delete()
             let m1 = new MessageEmbed()
              .setAuthor({
@@ -242,6 +327,7 @@ client.on('messageCreate', async msg => {
            
         }
         else if (args[1] == "win") {
+            if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
             cpt++;
             if (cpt > 5) { cpt = 1 }
             if (args[2] == "VITB") {
@@ -391,9 +477,9 @@ client.on('messageCreate', async msg => {
             }
         }
         else if (!args[1]) {
-            msg.channel.send("http://leagueskins.go.yj.fr/event/points.html")
+            msg.channel.send("**__Points:__**\n\nhttps://leagueskins.go.yj.fr/event/points.html")
         }
     }
 })
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
