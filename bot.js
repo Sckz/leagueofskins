@@ -113,7 +113,7 @@ client.on('messageCreate', async msg => {
                             .addField("Nom du compte :", `${imported.name}`)
                             .addField("Serveur :", "EUW")
                             .setColor("BLURPLE")
-                            msg.channel.send({embeds: [lol]})
+                            //msg.channel.send({embeds: [lol]})
                         }
                         if (status == 1) {
                             let embed = new MessageEmbed()
@@ -125,7 +125,7 @@ client.on('messageCreate', async msg => {
                              .addField("Nom du compte :", `${imported.name}`)
                              .addField("Serveur :", "EUW")
                              .setColor("BLURPLE")
-                            msg.channel.send({embeds: [embed]})
+                            //msg.channel.send({embeds: [embed]})
                         }
                         if (status == 2) {
                             let embed = new MessageEmbed()
@@ -137,7 +137,7 @@ client.on('messageCreate', async msg => {
                              .addField("Nom du compte :", `${imported.name}`)
                              .addField("Serveur :", "EUW")
                              .setColor("BLURPLE")
-                            msg.channel.send({embeds: [embed]})
+                            //msg.channel.send({embeds: [embed]})
                         }
                         
                     }
