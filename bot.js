@@ -245,7 +245,6 @@ client.on('messageCreate', async msg => {
                                 if (list[championName]['id'] == name) {
                                     return list[name]['key'];
                                 }
-                                return 0
                             }
                         }
                         request(`https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${imported.id}/by-champion/${getChampionId(champion)}?api_key=${riotAPI}`, function (error3, response3, body3) {
