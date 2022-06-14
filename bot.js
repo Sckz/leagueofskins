@@ -20,13 +20,13 @@ client.on('messageCreate', async (msg) => {
     }
     else if (args[0] == "patch") {
         if (args[1] == "12.10") {
-            msg.channel.send("**__Patch 12.10 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12_10")
+            msg.channel.send("**__Patch 12.10 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12-10")
         }
         else if (args[1] == "12.11") {
-            msg.channel.send("**__Patch 12.11 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12_11")
+            msg.channel.send("**__Patch 12.11 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12-11")
         }
         else if (args[1] == "12.12") {
-            msg.channel.send("**__Patch 12.12 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12_12")
+            msg.channel.send("**__Patch 12.12 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12-12")
         }
         else {
             msg.channel.send("> Veuillez définir un patch valide (A partir de : 12.10)")
@@ -311,29 +311,52 @@ client.on('messageCreate', msg => {
                         if (error2) console.log("Erreur : ", error2)
                         else {
                             var imported2 = JSON.parse(body2)  
+                            var status = 0
                             var emoji2 = ""
 
-                            if (imported2[0].tier == "IRON") emoji2 = "<:Iron:983814517349838868>"
-                            if (imported2[0].tier == "BRONZE") emoji2 = "<:Bronze:983814516905230366>"
-                            if (imported2[0].tier == "SILVER") emoji2 = "<:Silver:983815028199280640>"
-                            if (imported2[0].tier == "GOLD") emoji2 = "<:Gold:983814517177868390>"
-                            if (imported2[0].tier == "PLATINUM") emoji2 = "<:Platinum:983814517282701402>"
-                            if (imported2[0].tier == "DIAMOND") emoji2 = "<:Diamond:983814516758413363>"
-                            if (imported2[0].tier == "MASTER") emoji2 = "<:Master:983814517333049394>"
-                            if (imported2[0].tier == "GRANDMASTER") emoji2 = "<:Grandmaster:983814517354033222>"
-                            if (imported2[0].tier == "CHALLENGER") emoji2 = "<:Challenger:983814517089771620>"
+                            try{
+                                imported2[0].tier
+                            }catch(error){
+                                status = 1
+                            }
 
-                            var lol = new MessageEmbed()
-                            .setAuthor({name: `${imported2[0].summonerName}`})
-                            .setTitle("- __TFT Informations__ -")
-                            .setThumbnail('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')
-                            .addField("Nom du compte :", `${imported2[0].summonerName}`)
-                            .addField("Niveau d'invocateur :", `${imported.summonerLevel}`)
-                            .addField("Ranked (Solo/Duo)", `${emoji2} ${imported2[0].tier} ${imported2[0].rank} ${imported2[0].leaguePoints}LP`)
-                            .addField("Serveur :", "EUW")
-                            .setFooter({text: client.user.username})
-                            .setColor("RANDOM")
-                            msg.channel.send({embeds: [lol]})
+                            if (status == 0) {
+                                if (imported2[0].tier == "IRON") emoji2 = "<:Iron:983814517349838868>"
+                                if (imported2[0].tier == "BRONZE") emoji2 = "<:Bronze:983814516905230366>"
+                                if (imported2[0].tier == "SILVER") emoji2 = "<:Silver:983815028199280640>"
+                                if (imported2[0].tier == "GOLD") emoji2 = "<:Gold:983814517177868390>"
+                                if (imported2[0].tier == "PLATINUM") emoji2 = "<:Platinum:983814517282701402>"
+                                if (imported2[0].tier == "DIAMOND") emoji2 = "<:Diamond:983814516758413363>"
+                                if (imported2[0].tier == "MASTER") emoji2 = "<:Master:983814517333049394>"
+                                if (imported2[0].tier == "GRANDMASTER") emoji2 = "<:Grandmaster:983814517354033222>"
+                                if (imported2[0].tier == "CHALLENGER") emoji2 = "<:Challenger:983814517089771620>"
+
+                                var lol = new MessageEmbed()
+                                .setAuthor({name: `${imported2[0].summonerName}`})
+                                .setTitle("- __TFT Informations__ -")
+                                .setThumbnail('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')
+                                .addField("Nom du compte :", `${imported2[0].summonerName}`)
+                                .addField("Niveau d'invocateur :", `${imported.summonerLevel}`)
+                                .addField("Ranked (Solo/Duo)", `${emoji2} ${imported2[0].tier} ${imported2[0].rank} ${imported2[0].leaguePoints}LP`)
+                                .addField("Serveur :", "EUW")
+                                .setFooter({text: client.user.username})
+                                .setColor("RANDOM")
+                                msg.channel.send({embeds: [lol]})
+                            }
+                            if (status == 1) {
+                                var lol = new MessageEmbed()
+                                .setAuthor({name: `${imported.name}`})
+                                .setTitle("- __TFT Informations__ -")
+                                .setThumbnail('http://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/' + imported.profileIconId + '.png')
+                                .addField("Nom du compte :", `${imported.name}`)
+                                .addField("Niveau d'invocateur :", `${imported.summonerLevel}`)
+                                .addField("Ranked (Solo/Duo)", `Non classé`)
+                                .addField("Serveur :", "EUW")
+                                .setFooter({text: client.user.username})
+                                .setColor("RANDOM")
+                                msg.channel.send({embeds: [lol]})
+                            }
+                            
                         }
                     })
                 }
