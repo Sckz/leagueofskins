@@ -254,7 +254,7 @@ client.on('messageCreate', async msg => {
                             }
                             else {
                                 var imported3 = JSON.parse(body3);
-                                if (imported3.championLevel == undefined) return msg.channel.send("> Le champion ou le joueur est introuvable")
+                                //if (imported3.championLevel == undefined) return msg.channel.send("> Le champion ou le joueur est introuvable")
                                 var emoji = ""
                                 var chest = "Inconnu"
                                 if (imported3.chestGranted) {
