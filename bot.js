@@ -717,7 +717,7 @@ client.on('messageCreate', async msg => {
             }
         }
         else if (!args[1]) {
-            msg.channel.send("**__Points:__**\n\nhttps://leagueskins.go.yj.fr/event/points.html")
+            msg.channel.send("**__Points:__**\n\nhttps://leagueskins.go.yj.fr/event/points")
         }
     }
 })
