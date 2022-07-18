@@ -2,7 +2,6 @@ const {Client, Intents, Collection, MessageEmbed, Message, WebhookClient} = requ
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS]})
 const prefix = "!"
 const request = require('request');
-const moment = require('moment');
 var riotAPI = process.env.RIOTAPI;
 var cpt = 0
 
