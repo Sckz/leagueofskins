@@ -428,7 +428,7 @@ client.on('messageCreate', msg => {
 client.on('messageCreate', async msg => {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g)
     if (args[0] == "event") {
-        let week = '8'
+        let week = '9'
         let webhook = new WebhookClient({id : '994889271666278441', token: '4zJQZgLKiPbNuRhpUQVUX-sHYRnJaEhj7ooG_C9qyPbf5CQghFvS4ev9ECkQ09icnG08'})
         let GW = '<:GW:981239591103266866>'
         let GO = '<:GO:981239610002796624>'
