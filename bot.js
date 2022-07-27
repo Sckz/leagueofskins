@@ -41,12 +41,12 @@ client.on('messageCreate', async (msg) => {
     else if (args[0] == 'newpatch') {
         if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         msg.delete()
-        msg.channel.send(":page_facing_up:  **__Patch 12.13: __**\n\n__**Patch:**__ https://leagueskins.go.yj.fr/patch/12-13")
+        msg.channel.send(":page_facing_up:  **__Patch 12.14: __**\n\n__**Patch:**__ https://leagueskins.go.yj.fr/patch/12-14")
     }
     else if (args[0] == 'newskins') {
         if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         msg.delete()
-        msg.channel.send(':space_invader: **__Skins 12.14: __**\n\n**__Skins__** : https://leagueskins.go.yj.fr/\n\n`By KTS CORP`')
+        msg.channel.send(':space_invader: **__Skins 12.15: __**\n\n**__Skins__** : https://leagueskins.go.yj.fr/\n\n`By KTS CORP`')
     }
 })
 client.on('messageCreate', async msg => {
