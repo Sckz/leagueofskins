@@ -2,6 +2,7 @@ const {Client, Intents, Collection, MessageEmbed, Message, WebhookClient} = requ
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS]})
 const prefix = "!"
 const request = require('request');
+const moment = require('moment');
 var riotAPI = process.env.RIOTAPI;
 var cpt = 0
 
@@ -41,12 +42,12 @@ client.on('messageCreate', async (msg) => {
     else if (args[0] == 'newpatch') {
         if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         msg.delete()
-        msg.channel.send(":page_facing_up:  **__Patch 12.14: __**\n\n__**Patch:**__ https://leagueskins.go.yj.fr/patch/12-14")
+        msg.channel.send(":page_facing_up:  **__Patch 12.13: __**\n\n__**Patch:**__ https://leagueskins.go.yj.fr/patch/12-13")
     }
     else if (args[0] == 'newskins') {
         if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
         msg.delete()
-        msg.channel.send(':space_invader: **__Skins 12.15: __**\n\n**__Skins__** : https://leagueskins.go.yj.fr/\n\n`By KTS CORP`')
+        msg.channel.send(':space_invader: **__Skins 12.14: __**\n\n**__Skins__** : https://leagueskins.go.yj.fr/\n\n`By KTS CORP`')
     }
 })
 client.on('messageCreate', async msg => {
@@ -427,7 +428,7 @@ client.on('messageCreate', msg => {
 client.on('messageCreate', async msg => {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g)
     if (args[0] == "event") {
-        let week = '9'
+        let week = '8'
         let webhook = new WebhookClient({id : '994889271666278441', token: '4zJQZgLKiPbNuRhpUQVUX-sHYRnJaEhj7ooG_C9qyPbf5CQghFvS4ev9ECkQ09icnG08'})
         let GW = '<:GW:981239591103266866>'
         let GO = '<:GO:981239610002796624>'
@@ -534,7 +535,7 @@ client.on('messageCreate', async msg => {
             .setTitle("🇫🇷 LFL - Match 1")
             .setDescription(`__**Date**__: ${date2} à 18h\n\n ${GO} **Team GO** <:VS:981456373957165068> **Mirage-Elyandra** ${ELY}\n\n*Votez en réagissant ci-dessous !*`)             .setColor("BLACK")
              .setTimestamp(new Date(2022, 6, 28, 18, 0, 0))
-             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/996548954156171334/unknown.png')
+             .setImage('https://media.discordapp.net/attachments/879144621043752971/1002184177128575037/unknown.png')
              .setFooter({text: client.user.username})
             let s1 = await msg.channel.send({embeds: [m1]})
             s1.react(GO)
@@ -550,7 +551,7 @@ client.on('messageCreate', async msg => {
             .setDescription(`__**Date**__: ${date2} à 19h\n\n ${SLY} **Solary** <:VS:981456373957165068> **GameWard** ${GW}\n\n*Votez en réagissant ci-dessous !*`)
              .setColor("WHITE")
              .setTimestamp(new Date(2022, 6, 28, 19, 0, 0))
-             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/996548997458165790/unknown.png')
+             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002184477772099625/unknown.png')
              .setFooter({text: client.user.username})
             let s2 = await msg.channel.send({embeds: [m2]})
             s2.react(SLY)
@@ -565,7 +566,7 @@ client.on('messageCreate', async msg => {
              .setDescription(`__**Date**__: ${date2} à 20h\n\n ${VIT} **Vitality.Bee** <:VS:981456373957165068> **Team BDS Academy** ${BDSA}\n\n*Votez en réagissant ci-dessous !*`)             
              .setColor("BLACK")
              .setTimestamp(new Date(2022, 6, 28, 20, 0, 0))
-             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/996549043473895604/unknown.png')
+             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002184640779538462/unknown.png')
              .setFooter({text: client.user.username})
             let s3 = await msg.channel.send({embeds: [m3]})
             s3.react(VIT)
@@ -580,7 +581,7 @@ client.on('messageCreate', async msg => {
             .setDescription(`__**Date**__: ${date2} à 21h\n\n ${LDLC} **LDLC OL** <:VS:981456373957165068> **Karmine Corp** ${KC}\n\n*Votez en réagissant ci-dessous !*`)
             .setColor("WHITE")
             .setTimestamp(new Date(2022, 6, 28, 21, 0, 0))
-            .setImage('https://cdn.discordapp.com/attachments/879144621043752971/996549146846691478/unknown.png')
+            .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002184793141817355/unknown.png')
             .setFooter({text: client.user.username})
            let s4 = await msg.channel.send({embeds: [m4]})
            s4.react(LDLC)
@@ -595,7 +596,7 @@ client.on('messageCreate', async msg => {
         .setDescription(`__**Date**__: ${date2} à 22h\n\n ${OPL} **Team Oplon** <:VS:981456373957165068> **Misfits Premier** ${MSF}\n\n*Votez en réagissant ci-dessous !*`)
             .setColor("BLACK")
             .setTimestamp(new Date(2022, 6, 28, 22, 0, 0))
-            .setImage('https://cdn.discordapp.com/attachments/879144621043752971/996549151867285534/unknown.png')
+            .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002185259061883010/unknown.png')
             .setFooter({text: client.user.username})
            let s5 = await msg.channel.send({embeds: [m5]})
            s5.react(OPL)
@@ -759,4 +760,4 @@ client.on('messageCreate', async msg => {
     }
 })
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
