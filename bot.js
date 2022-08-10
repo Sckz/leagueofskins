@@ -2,7 +2,7 @@ const {Client, Intents, Collection, MessageEmbed, Message, WebhookClient} = requ
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS]})
 const prefix = "!"
 const request = require('request');
-var riotAPI = process.env.RIOTAPI;
+var riotAPI = "";
 var cpt = 0
 
 client.on('ready', () => {
@@ -597,87 +597,31 @@ client.on('messageCreate', async msg => {
             let amount = args[3]
             let amount2 = args[4]
             if (cpt > 5) { cpt = 1}
-            if (args[2] == "VITB") {
+            if (args[2] == "BDSA") {
                 msg.delete()
                 let embed = new  MessageEmbed()
                  .setAuthor({
                      name: `Play-Offs`,
                      iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
                     })
-                 .setTitle(`🇫🇷 LFL - Match 1`)
-                 .setDescription(`**__🏆 Gagnant :__**\n** ${VIT} Vitality.Bee**\n\n${VIT} **${amount} - ${amount2}** ${MSF}`)
-                 .setImage("https://pbs.twimg.com/media/FUwPT-qXoAcIko1?format=jpg&name=large")
+                 .setTitle(`🇫🇷 LFL - Match 3`)
+                 .setDescription(`**__🏆 Gagnant :__**\n** ${BDSA} Team BDS Academy**\n\n${BDSA} **${amount} - ${amount2}** ${LDLC}`)
+                 .setImage("https://cdn.discordapp.com/attachments/1004430982205669526/1006983268228411472/unknown.png")
                  .setColor("GOLD")
                  .setTimestamp()
                  .setFooter({text: client.user.username})
                 msg.channel.send({embeds: [embed]})
-            }
-            if (args[2] == "KC") {
-                msg.delete()
-                let embed = new MessageEmbed()
-                .setAuthor({
-                    name: `Jour ${day} - Semaine ${week}`,
-                    iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-                   })
-                .setTitle(`🇫🇷 LFL - Match ${cpt}`)
-                .setDescription(`**__🏆 Gagnant :__**\n\n**Karmine Corp ${KC}**`)
-                 .setColor("GOLD")
-                 .setTimestamp()
-                 .setFooter({text: client.user.username})
-               msg.channel.send({embeds: [embed]})
             }
             if (args[2] == "LDLC") {
                 msg.delete()
-                let embed = new MessageEmbed()
-                .setAuthor({
-                    name: `Jour ${day} - Semaine ${week}`,
-                    iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-                   })
-                .setTitle(`🇫🇷 LFL - Match ${cpt}`)
-                .setDescription(`**__🏆 Gagnant :__**\n\n**LDLC OL ${LDLC}**`)
-                 .setColor("GOLD")
-                 .setTimestamp()
-                 .setFooter({text: client.user.username})
-                msg.channel.send({embeds: [embed]})
-            }
-            if (args[2] == "BDSA") {
-                msg.delete()
-                let embed = new MessageEmbed()
-                .setAuthor({
-                    name: `Jour ${day} - Semaine ${week}`,
-                    iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-                   })
-                .setTitle(`🇫🇷 LFL - Match ${cpt}`)
-                .setDescription(`**__🏆 Gagnant :__**\n\n**Team BDS Academy ${BDSA}**`)
-                 .setColor("GOLD")
-                 .setImage()
-                 .setFooter({text: client.user.username})
-                msg.channel.send({embeds: [embed]})
-            }
-            if (args[2] == "GW") {
-                msg.delete()
-                let embed = new MessageEmbed()
-                .setAuthor({
-                    name: `Jour ${day} - Semaine ${week}`,
-                    iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-                   })
-                .setTitle(`🇫🇷 LFL - Match ${cpt}`)
-                .setDescription(`**__🏆 Gagnant :__**\n\n**GameWard ${GW}**`)
-                 .setColor("GOLD")
-                 .setTimestamp()
-                 .setFooter({text: client.user.username})
-                msg.channel.send({embeds: [embed]})
-            }
-            if (args[2] == "MSF") {
-                msg.delete()
-                let embed = new MessageEmbed()
-                .setAuthor({
-                    name: `Play-Offs`,
-                    iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-                   })
-                .setTitle(`🇫🇷 LFL - Match 1`)
-                .setDescription(`**__🏆 Gagnant :__**\n**${MSF} Misfits Premier**\n\n${VIT} **${amount} - ${amount2}** ${MSF}`)
-                .setImage("https://pbs.twimg.com/media/FXADYf2XkAIqchw?format=jpg&name=large")
+                let embed = new  MessageEmbed()
+                 .setAuthor({
+                     name: `Play-Offs`,
+                     iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
+                    })
+                 .setTitle(`🇫🇷 LFL - Match 3`)
+                 .setDescription(`**__🏆 Gagnant :__**\n** ${LDLC} LDLC OL**\n\n${LDLC} **${amount} - ${amount2}** ${BDSA}`)
+                 .setImage("https://pbs.twimg.com/media/FWcbh0-WQAIRrYi?format=jpg&name=large")
                  .setColor("GOLD")
                  .setTimestamp()
                  .setFooter({text: client.user.username})
