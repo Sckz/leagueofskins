@@ -2,14 +2,15 @@ const {Client, Intents, Collection, MessageEmbed, Message, WebhookClient} = requ
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS]})
 const prefix = "!"
 const request = require('request');
-var riotAPI = process.env.RIOTAPI
+var riotAPI = process.env.RIOTAPI;
 var cpt = 0
 
 client.on('ready', () => {
     console.log('Bot Status : ON')
     client.user.setStatus('online');
-    client.user.setActivity('League of Legends', {
-        type: "PLAYING"
+    client.user.setActivity('LFL - PlayOffs', {
+        type: "STREAMING",
+        url: "https://www.twitch.tv/otplol_"
     })
 })
 
@@ -28,8 +29,8 @@ client.on('messageCreate', async (msg) => {
         else if (args[1] == "12.14") {
             msg.channel.send("**__Patch 12.14 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12-14")
         }
-        else if (args[1] == "12.12") {
-            msg.channel.send("**__Patch 12.12 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12-12")
+        else if (args[1] == "12.15") {
+            msg.channel.send("**__Patch 12.15 :__**\n\nhttps://leagueskins.go.yj.fr/patch/12-15")
         }
         else {
             msg.channel.send("> Veuillez définir un patch valide (3 derniers patch)")
@@ -414,8 +415,8 @@ client.on('messageCreate', async msg => {
         let MSF = '<:MSF:981239591153573959>'
         let BDSA = '<:BDSA:981239618882117732>'
         //Dates
-        let date1 = "Mercredi 03 Août"
-        let date2 = "Jeudi 04 Août"
+        let date1 = "Mercredi 10 Août"
+        let date2 = "Jeudi 11 Août"
         //Ressources
         let Mountain = "<:Moutain:1002552161303015454>"
         let Hextech = "<:Hextech:1002552158153080973>"
@@ -446,8 +447,6 @@ client.on('messageCreate', async msg => {
 
             Soyez stratégique !
              `)
-             .setColor("RED")
-
             msg.channel.send({embeds: [embed]});
             
         }
@@ -460,26 +459,26 @@ client.on('messageCreate', async msg => {
                 name: `Play-Offs`,
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("🇫🇷 LFL - Match 1")
-            .setDescription(`__**Date**__: ${date1} à 18h\n\n ${VIT} **Vitality.Bee** <:VS:981456373957165068> **Misfits Premier** ${MSF}\n\n*Votez en réagissant ci-dessous !*`)
+            .setTitle("🇫🇷 LFL - Match 3")
+            .setDescription(`__**Date**__: ${date1} à 18h\n\n ${BDSA} **Team BDS Academy** <:VS:981456373957165068> **LDLC OL** ${LDLC}\n\n*Votez en réagissant ci-dessous !*`)
              .setColor("GOLD")
              .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1004331656401911859/unknown.png')
              .setFooter({text: client.user.username})
-             .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+             .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
             let s1 = await msg.channel.send({embeds: [m1]})
-            s1.react(VIT)
-            s1.react(MSF)
+            s1.react(BDSA)
+            s1.react(LDLC)
 
             let m10 = new MessageEmbed()
            .setAuthor({
             name: `Play-Offs`,
             iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
        })
-        .setTitle("🇫🇷 LFL - Match 1")
-        .setDescription(`__**Score**__:\n\n1️⃣ - ${VIT} **3 - 0** ${MSF}\n2️⃣ - ${VIT} **3 - 1** ${MSF}\n3️⃣ - ${VIT} **3 - 2** ${MSF}\n4️⃣ - ${VIT} **0 - 3** ${MSF}\n5️⃣ - ${VIT} **1 - 3** ${MSF}\n6️⃣ - ${VIT} **2 - 3** ${MSF}\n\n*Votez en réagissant ci-dessous !*`)
+        .setTitle("🇫🇷 LFL - Match 3")
+        .setDescription(`__**Score**__:\n\n1️⃣ - ${BDSA} **3 - 0** ${LDLC}\n2️⃣ - ${BDSA} **3 - 1** ${LDLC}\n3️⃣ - ${BDSA} **3 - 2** ${LDLC}\n4️⃣ - ${BDSA} **0 - 3** ${LDLC}\n5️⃣ - ${BDSA} **1 - 3** ${LDLC}\n6️⃣ - ${BDSA} **2 - 3** ${LDLC}\n\n*Votez en réagissant ci-dessous !*`)
          .setColor("BLACK")
          .setFooter({text: client.user.username})
-         .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+         .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
         let s10 = await msg.channel.send({embeds: [m10]})
         s10.react("1️⃣")
         s10.react("2️⃣")
@@ -493,12 +492,12 @@ client.on('messageCreate', async msg => {
                 name: `Play-Offs`,
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("🇫🇷 LFL - Match 1")
+            .setTitle("🇫🇷 LFL - Match 3")
             .setDescription(`__**Âme du Dragon**__: \n\n**❌ Aucune**\n${Ocean} **Océan**\n${Infernal} **Infernale**\n${Mountain} **Montage** \n${Cloud} **Nuage** \n${Hextech} **Hextech** \n\n*Votez en réagissant ci-dessous !*`)
              .setColor("WHITE")
              .setImage('')
              .setFooter({text: client.user.username})
-             .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+             .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
             let s2 = await msg.channel.send({embeds: [m2]})
             s2.react("❌")
             s2.react(Ocean)
@@ -512,166 +511,85 @@ client.on('messageCreate', async msg => {
                 name: `Play-Offs`,
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("🇫🇷 LFL - Match 1")
-            .setDescription(`__**1e Dragon**__:\n\n ${VIT} **Vitality.Bee**\n${MSF} **Misfits Premier**\n\n*Votez en réagissant ci-dessous !*`)
+            .setTitle("🇫🇷 LFL - Match 3")
+            .setDescription(`__**1e Dragon**__:\n\n ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
              .setColor("BLACK")
              .setFooter({text: client.user.username})
-             .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+             .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
             let s3 = await msg.channel.send({embeds: [m3]})
-            s3.react(VIT)
-            s3.react(MSF)
+            s3.react(BDSA)
+            s3.react(LDLC)
 
             let m4 = new MessageEmbed()
             .setAuthor({
                 name: `Play-Offs`,
                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
            })
-            .setTitle("🇫🇷 LFL - Match 1")
-            .setDescription(`__**Dragons**__:\n\n ${VIT} **Vitality.Bee**\n${MSF} **Misfits Premier**\n\n*Votez en réagissant ci-dessous !*`)
+            .setTitle("🇫🇷 LFL - Match 3")
+            .setDescription(`__**Dragons**__:\n\n ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
              .setColor("WHITE")
              .setFooter({text: client.user.username})
-             .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+             .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
             let s4 = await msg.channel.send({embeds: [m4]})
-            s4.react(VIT)
-            s4.react(MSF)
+            s4.react(BDSA)
+            s4.react(LDLC)
 
            let m5 = new MessageEmbed()
            .setAuthor({
             name: `Play-Offs`,
             iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
        })
-        .setTitle("🇫🇷 LFL - Match 1")
-        .setDescription(`__**Nashor**__:\n\n ${VIT} **Vitality.Bee**\n${MSF} **Misfits Premier**\n\n*Votez en réagissant ci-dessous !*`)
+        .setTitle("🇫🇷 LFL - Match 3")
+        .setDescription(`__**Nashor**__:\n\n ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
          .setColor("BLACK")
          .setFooter({text: client.user.username})
-         .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+         .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
         let s5 = await msg.channel.send({embeds: [m5]})
-        s5.react(VIT)
-        s5.react(MSF)
+        s5.react(BDSA)
+        s5.react(LDLC)
 
         let m7 = new MessageEmbed()
            .setAuthor({
             name: `Play-Offs`,
             iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
        })
-        .setTitle("🇫🇷 LFL - Match 1")
-        .setDescription(`__**1e Tour**__:\n\n ${VIT} **Vitality.Bee**\n${MSF} **Misfits Premier**\n\n*Votez en réagissant ci-dessous !*`)
+        .setTitle("🇫🇷 LFL - Match 3")
+        .setDescription(`__**1e Tour**__:\n\n ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
          .setColor("BLACK")
          .setFooter({text: client.user.username})
-         .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+         .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
         let s7 = await msg.channel.send({embeds: [m7]})
-        s7.react(VIT)
-        s7.react(MSF)
+        s7.react(BDSA)
+        s7.react(LDLC)
 
         let m8 = new MessageEmbed()
            .setAuthor({
             name: `Play-Offs`,
             iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
        })
-        .setTitle("🇫🇷 LFL - Match 1")
+        .setTitle("🇫🇷 LFL - Match 3")
         .setDescription(`__**Herald**__:\n\n ${VIT} **Vitality.Bee**\n${MSF} **Misfits Premier**\n\n*Votez en réagissant ci-dessous !*`)
          .setColor("WHITE")
          .setFooter({text: client.user.username})
-         .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+         .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
         let s8 = await msg.channel.send({embeds: [m8]})
-        s8.react(VIT)
-        s8.react(MSF)
+        s8.react(BDSA)
+        s8.react(LDLC)
 
         let m9 = new MessageEmbed()
            .setAuthor({
             name: `Play-Offs`,
             iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
        })
-        .setTitle("🇫🇷 LFL - Match 1")
-        .setDescription(`__**1e Sang**__:\n\n ${VIT} **Vitality.Bee**\n${MSF} **Misfits Premier**\n\n*Votez en réagissant ci-dessous !*`)
+        .setTitle("🇫🇷 LFL - Match 3")
+        .setDescription(`__**1e Sang**__:\n\n ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
          .setColor("BLACK")
          .setFooter({text: client.user.username})
-         .setTimestamp(new Date(2022, 7, 3, 18, 0, 0))
+         .setTimestamp(new Date(2022, 7, 10, 18, 0, 0))
         let s9 = await msg.channel.send({embeds: [m9]})
-        s9.react(VIT)
-        s9.react(MSF)
+        s9.react(BDSA)
+        s9.react(LDLC)
         
-        }
-        
-        if (args[1] == "day2") {
-            if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
-            msg.delete()
-
-            let m1 = new MessageEmbed()
-            .setAuthor({
-                name: `Jour 2 - Semaine ${week}`,
-                iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-           })
-            .setTitle("🇫🇷 LFL - Match 1")
-            .setDescription(`__**Date**__: ${date2} à 18h\n\n ${GO} **Team GO** <:VS:981456373957165068> **Mirage-Elyandra** ${ELY}\n\n*Votez en réagissant ci-dessous !*`)             .setColor("BLACK")
-             .setTimestamp(new Date(2022, 6, 28, 18, 0, 0))
-             .setImage('https://media.discordapp.net/attachments/879144621043752971/1002184177128575037/unknown.png')
-             .setFooter({text: client.user.username})
-            let s1 = await msg.channel.send({embeds: [m1]})
-            s1.react(GO)
-            s1.react(ELY)
-            
-             
-            let m2 = new MessageEmbed()
-            .setAuthor({
-                name: `Jour 2 - Semaine ${week}`,
-                iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-           })
-            .setTitle("🇫🇷 LFL - Match 2")
-            .setDescription(`__**Date**__: ${date2} à 19h\n\n ${SLY} **Solary** <:VS:981456373957165068> **GameWard** ${GW}\n\n*Votez en réagissant ci-dessous !*`)
-             .setColor("WHITE")
-             .setTimestamp(new Date(2022, 6, 28, 19, 0, 0))
-             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002184477772099625/unknown.png')
-             .setFooter({text: client.user.username})
-            let s2 = await msg.channel.send({embeds: [m2]})
-            s2.react(SLY)
-            s2.react(GW)
-
-            let m3 = new MessageEmbed()
-             .setAuthor({
-                 name: `Jour 2 - Semaine ${week}`,
-                 iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-            })
-             .setTitle("🇫🇷 LFL - Match 3")
-             .setDescription(`__**Date**__: ${date2} à 20h\n\n ${VIT} **Vitality.Bee** <:VS:981456373957165068> **Team BDS Academy** ${BDSA}\n\n*Votez en réagissant ci-dessous !*`)             
-             .setColor("BLACK")
-             .setTimestamp(new Date(2022, 6, 28, 20, 0, 0))
-             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002184640779538462/unknown.png')
-             .setFooter({text: client.user.username})
-            let s3 = await msg.channel.send({embeds: [m3]})
-            s3.react(VIT)
-            s3.react(BDSA)
-
-            let m4 = new MessageEmbed()
-            .setAuthor({
-                name: `Jour 2 - Semaine ${week}`,
-                iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-           })
-            .setTitle("🇫🇷 LFL - Match 4")
-            .setDescription(`__**Date**__: ${date2} à 21h\n\n ${LDLC} **LDLC OL** <:VS:981456373957165068> **Karmine Corp** ${KC}\n\n*Votez en réagissant ci-dessous !*`)
-            .setColor("WHITE")
-            .setTimestamp(new Date(2022, 6, 28, 21, 0, 0))
-            .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002184793141817355/unknown.png')
-            .setFooter({text: client.user.username})
-           let s4 = await msg.channel.send({embeds: [m4]})
-           s4.react(LDLC)
-           s4.react(KC)
-
-           let m5 = new MessageEmbed()
-           .setAuthor({
-            name: `Jour 2 - Semaine ${week}`,
-            iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
-       })
-        .setTitle("🇫🇷 LFL - Match 5")
-        .setDescription(`__**Date**__: ${date2} à 22h\n\n ${OPL} **Team Oplon** <:VS:981456373957165068> **Misfits Premier** ${MSF}\n\n*Votez en réagissant ci-dessous !*`)
-            .setColor("BLACK")
-            .setTimestamp(new Date(2022, 6, 28, 22, 0, 0))
-            .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1002185259061883010/unknown.png')
-            .setFooter({text: client.user.username})
-           let s5 = await msg.channel.send({embeds: [m5]})
-           s5.react(OPL)
-           s5.react(MSF)
-           
         }
         else if (args[1] == "win") {
             if (msg.author.id != "499977832961933342") return msg.channel.send("> **__Erreur :__** Commande indisponible");
