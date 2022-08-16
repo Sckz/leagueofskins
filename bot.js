@@ -456,7 +456,7 @@ client.on('messageCreate', async msg => {
             .setTitle("🇫🇷 LFL - Match 6")
             .setDescription(`__**Date**__: ${date2} à 18h\n\n ${VIT} **Vitality.Bee** <:VS:981456373957165068> **LDLC OL** ${LDLC}\n\n*Votez en réagissant ci-dessous !*`)
              .setColor("GOLD")
-             .setImage('https://media.discordapp.net/attachments/879144621043752971/1007199789596803102/unknown.png')
+             .setImage('https://cdn.discordapp.com/attachments/879144621043752971/1009142399794167869/unknown.png')
              .setFooter({text: client.user.username})
              .setTimestamp(new Date(2022, 7, 17, 18, 0, 0))
             let s1 = await msg.channel.send({embeds: [m1]})
