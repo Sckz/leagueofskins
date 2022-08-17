@@ -8,7 +8,7 @@ var cpt = 0
 client.on('ready', () => {
     console.log('Bot Status : ON')
     client.user.setStatus('online');
-    client.user.setActivity('LFL - Vitality vs LDLC', {
+    client.user.setActivity('LFL FINALE - BDSA vs LDLC', {
         type: "STREAMING",
         url: "https://www.twitch.tv/otplol_"
     })
