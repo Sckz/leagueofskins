@@ -8,8 +8,8 @@ var cpt = 0
 client.on('ready', () => {
     console.log('Bot Status : ON')
     client.user.setStatus('online');
-    client.user.setActivity('LFL FINALE - BDSA vs LDLC', {
-        type: "STREAMING",
+    client.user.setActivity('League of Legends', {
+        type: "PLAYING",
         url: "https://www.twitch.tv/otplol_"
     })
 })
@@ -534,7 +534,7 @@ client.on('messageCreate', async msg => {
             iconURL: "https://yt3.ggpht.com/R-LnoDWNxzdEqdiNvH1yoOAKNaRwlgZSFoC8-HBjae97HLESiu2cbE27uJtyeHAg5u44ySi-1w=s900-c-k-c0x00ffffff-no-rj"
        })
         .setTitle("🇫🇷 LFL - Match 7")
-        .setDescription(`__**Nashor**__:\n\n $ ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
+        .setDescription(`__**Nashor**__:\n\n ${BDSA} **Team BDS Academy**\n${LDLC} **LDLC OL**\n\n*Votez en réagissant ci-dessous !*`)
          .setColor("BLACK")
          .setFooter({text: client.user.username})
          .setTimestamp(new Date(2022, 7, 18, 18, 0, 0))
@@ -628,7 +628,7 @@ client.on('messageCreate', async msg => {
             }
         }
         else if (!args[1]) {
-            msg.channel.send("**__Classement:__ **https://leagueskins.go.yj.fr/event/classement\n**__Objectifs:__** https://leagueskins.go.yj.fr/event/obj")
+            msg.channel.send("*Aucun événement n'est en cours.*\n\n**__Classement de l'événement LFL :__ **https://leagueskins.go.yj.fr/event/classement")
         }
     }
 })
